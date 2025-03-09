@@ -8,8 +8,9 @@ import os
 load_dotenv()
 
 # Initialize the model
+# Initialize Groq LLM
 llm = ChatGroq(
-    api_key="gsk_0da2rsfsOvURR04xaA39WGdyb3FYfpGE8WaTZOe2uJL6oPITAeI1gsk_ZbTz0msdoRqW7aPrZKlcWGdyb3FYUsmcJVmP4UIdnZ0Q8NUcix5O",  # Replace with actual key
+    api_key=os.getenv("GROQ_API_KEY"),
     model="llama-3.3-70b-versatile",
     temperature=0.0,
     max_retries=2,
