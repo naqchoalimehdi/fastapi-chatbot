@@ -33,3 +33,8 @@ async def chat(request: ChatRequest):
     prompt = f"You are a helpful assistant. Write something about {request.topic}"
     response = llm.invoke(prompt)  # Corrected to invoke()
     return {"response": response}  # No `.content`, return response directly
+
+# Ensure FastAPI runs on port 8080
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))  # Default to 8080
+    uvicorn.run(app, host="0.0.0.0", port=port)
